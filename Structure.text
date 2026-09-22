@@ -1,0 +1,37 @@
+PassportPlease - page list (Day 1)
+Format: Page -> What you see or do there -> Who can reach it
+
+
+=== PUBLIC (anyone, no login needed) ===
+
+View DPP -> Visualization of the information of the product (the page the QR code opens) -> public & logged-in
+?? (see question 1) What does someone see at the address "/" if they are NOT logged in?
+
+
+=== GUEST ONLY (only people who are NOT logged in) ===
+
+?? (see question 2)
+
+
+=== LOGGED-IN (manufacturers) ===
+
+Home page -> Menu, view list of DPPs, create new DPP, create new material, create new product -> logged-in
+Registration page -> Form to register as a user -> public
+
+--- Products ---
+Products list  -> List of products created, edit & delete -> logged-in
+New product    -> Form to input the details of the product -> logged-in
+Edit product   -> Edit the details of the product + form with the percentage of each material (material_product) -> logged-in
+View Product
+
+--- Materials ---
+Materials list -> List of materials created, edit & delete -> logged-in
+New material   -> Form to input the details of the material -> logged-in
+Edit material  -> Edit the details of the material -> logged-in
+View material
+
+--- DPPs (passports) ---
+DPP list -> List of the DPPs that have been created, where you can edit the information and delete older versions of the DPP -> logged-in
+New DPP  -> Forms to fill information about the product, confirm if we can publish the DPP -> logged-in
+Edit DPP -> Edit the details of the DPP -> logged-in
+View DPP -> Visualization of the DPP Details -> Logged-in / public
