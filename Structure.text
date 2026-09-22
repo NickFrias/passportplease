@@ -1,28 +1,43 @@
-PassportPlease
+PassportPlease - page list (Day 1)
+Format: Page -> What you see or do there -> Who can reach it
+
 
 === PUBLIC (anyone, no login needed) ===
 
-View DPP -> Visualization of the information of the product (the page the QR code opens) -> public & logged-in
-Registration page -> Form to register as a user -> public & logged-in
+Welcome page ("/") -> The name PassportPlease, a few sentences about what the app does, a "Log in" button -> public
+View DPP           -> Visualization of the information of the product, including its materials and percentages
+                      (the page the QR code opens). Only when the DPP is published, otherwise 404 -> public & logged-in
+Log in             -> Form: email + password -> public, not-logged-in only (guest filter: logged-in users are sent to the dashboard)
+Registration page  -> Form to register as a user: name, company, email, password -> public, not-logged-in only (guest filter)
+
 
 === LOGGED-IN (manufacturers) ===
 
-Home page -> Menu, view list of DPPs, create new DPP, create new material, create new product -> logged-in
+Home page (dashboard) -> Menu, view list of DPPs, create new DPP, create new material, create new product -> logged-in
 
 --- Products ---
-Products list  -> List of products created, edit & delete -> logged-in
-New product    -> Form to input the details of the product -> logged-in
-Edit product   -> Edit the details of the product + form with the percentage of each material (material_product) -> logged-in
-View Product
+Products list -> List of products created, edit & delete -> logged-in
+View product  -> All details of one product, including its materials and percentages -> logged-in
+New product   -> Form to input the details of the product + its materials with percentages (material_product) -> logged-in
+Edit product  -> Edit the details of the product + the percentage of each material (material_product) -> logged-in
+(Delete = a button on the list, not a page)
 
 --- Materials ---
 Materials list -> List of materials created, edit & delete -> logged-in
+View material  -> Details of one material -> logged-in
 New material   -> Form to input the details of the material -> logged-in
 Edit material  -> Edit the details of the material -> logged-in
-View material
+(Delete = a button on the list, not a page. Materials are shared: any logged-in user can edit or delete them in this version)
 
 --- DPPs (passports) ---
-DPP list -> List of the DPPs that have been created, where you can edit the information and delete older versions of the DPP -> logged-in
-New DPP  -> Forms to fill information about the product, confirm if we can publish the DPP -> logged-in
-Edit DPP -> Edit the details of the DPP -> logged-in
-View DPP -> Visualization of the DPP Details -> Logged-in / public
+DPP list -> List of the DPPs that have been created, with a link to edit each one -> logged-in
+New DPP  -> Choose the product to link, and whether to publish it (the slug and QR code are made by the app) -> logged-in
+Edit DPP -> Publish or unpublish the DPP -> logged-in
+View DPP -> Visualization of the DPP details: the same page as "View DPP" under PUBLIC -> logged-in / public
+
+
+=== OUT OF SCOPE (later versions) ===
+
+- Versions of a DPP (the data structure allows one passport per product)
+- Rules for who may edit or delete a shared material
+- Supplier model (only when everything else works, as the professor said)
