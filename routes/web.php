@@ -1,10 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use resources\views\landing;
+use App\Http\Controllers\WelcomeController;
 
-Route::get('/', function () {
-    return view('landing');
-});
-
-
+Route::get('/', [WelcomeController::class, 'index'])->name('welcome');
