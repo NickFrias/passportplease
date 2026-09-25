@@ -34,9 +34,7 @@
                     </x-slot>
 
                     <x-slot name="content">
-                        <x-breeze.dropdown-link :href="route('profile.edit')">
-                            {{ __('Profile') }}
-                        </x-breeze.dropdown-link>
+
 
                         <!-- Authentication -->
                         <form method="POST" action="{{ route('logout') }}">
@@ -80,9 +78,6 @@
             </div>
 
             <div class="mt-3 space-y-1">
-                <x-breeze.responsive-nav-link :href="route('profile.edit')">
-                    {{ __('Profile') }}
-                </x-breeze.responsive-nav-link>
 
                 <!-- Authentication -->
                 <form method="POST" action="{{ route('logout') }}">
