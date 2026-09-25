@@ -41,3 +41,4 @@ View DPP -> Visualization of the DPP details: the same page as "View DPP" under 
 - Versions of a DPP (the data structure allows one passport per product)
 - Rules for who may edit or delete a shared material
 - Supplier model (only when everything else works, as the professor said)
+- Profile Page for users
