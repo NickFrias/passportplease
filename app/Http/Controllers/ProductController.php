@@ -8,8 +8,8 @@ class ProductController extends Controller
 {
     public function index()
     {
-        // Load the relevant products
-        $products = Product::all();
+        // Load the relevant products for the corresponding user
+        $products = auth()->user()->products;
 
         return view('products.index', compact('products'));
     }
