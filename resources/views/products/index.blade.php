@@ -12,6 +12,11 @@
                         <p class="meta">
                         SKU → {{ $product->sku }}
                     </p>
+                        <form method="POST" action="{{ route('products.destroy', $product) }}" class="inline">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="text-red-600 underline">Delete</button>
+                        </form>
                     </li>
                 @endforeach
             </ul>
