@@ -33,7 +33,7 @@ class ProductController extends Controller
             'dimensions' => ['required', 'string', 'max:255'],
         ]);
 
-        auth()->user()->products($product)->update($validate);
+        auth()->user()->products()->create($validate);
 
         return redirect()->route('products.index');
     }
