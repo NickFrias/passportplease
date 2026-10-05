@@ -17,7 +17,7 @@
                 </div>
 
                 <div class="p-6 text-black-900">
-                    <a href="{{ route('materials.index') }}" class="underline">Manage your products →</a>
+                    <a href="{{ route('materials.index') }}" class="underline">Manage your materials →</a>
                 </div>
             </div>
         </div>
