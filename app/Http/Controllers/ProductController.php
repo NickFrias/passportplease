@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class ProductController extends Controller
 {
@@ -32,9 +33,30 @@ class ProductController extends Controller
             'dimensions' => ['required', 'string', 'max:255'],
         ]);
 
-        auth()->user()->products()->create($validate);
+        auth()->user()->products($product)->update($validate);
 
         return redirect()->route('products.index');
+    }
+
+    public function edit(Product $product)
+    {
+        return view('products.edit', compact('product'));
+    }
+
+    public function update(Request $request, Product $product)
+    {
+        $validate = $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'sku' => ['required', 'string', 'max:255', Rule::unique('products')->ignore($product->id)],
+            'description' => ['required', 'string', 'max:1500'],
+            'category' => ['required', 'string', 'max:255'],
+            'weight' => ['required', 'numeric', 'min:0', 'max:499.99'],
+            'dimensions' => ['required', 'string', 'max:255'],
+        ]);
+
+        $product->update($validate);
+
+        return redirect()->route('products.show', $product);
     }
 
     public function show(Product $product)

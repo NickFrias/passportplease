@@ -13,6 +13,12 @@
         </div>
     </dl>
         <div>
+            <a href="{{ route('products.edit', $product) }}" class = "underline"> Edit Product </a>
+        </div>
+
+        <div>
             <a href="{{ route('products.index') }}" class = "underline"> Back to overview </a>
         </div>
+
+
 </x-site-layout>
