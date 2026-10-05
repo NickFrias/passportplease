@@ -15,6 +15,10 @@
                 <div class="p-6 text-black-900">
                     <a href="{{ route('products.create') }}" class="underline">Create your products →</a>
                 </div>
+
+                <div class="p-6 text-black-900">
+                    <a href="{{ route('materials.index') }}" class="underline">Manage your products →</a>
+                </div>
             </div>
         </div>
     </div>
