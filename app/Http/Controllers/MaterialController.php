@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Material;
 use Illuminate\Http\Request;
+use Illuminate\Http\RedirectResponse;
 
 class MaterialController extends Controller
 {
@@ -13,27 +14,24 @@ class MaterialController extends Controller
 
         return view('materials.index', compact('materials'));
     }
+    
+    public function create()
+    {
+        return view('materials.create');
+    }
 
-    //     public function create()
-    //     {
-    //         return view('products.create');
-    //     }
+    public function store(Request $request): RedirectResponse
+    {
+        $validate = $request->validate([
+            'name' => ['required', 'string', 'max:255', 'unique:materials'],
+            'description' => ['required', 'string', 'max:1500'],
 
-    //     public function store(Request $request): RedirectResponse
-    //     {
-    //         $validate = $request->validate([
-    //             'name' => ['required', 'string', 'max:255'],
-    //             'sku' => ['required', 'string', 'max:255', 'unique:products'],
-    //             'description' => ['required', 'string', 'max:1500'],
-    //             'category' => ['required', 'string', 'max:255'],
-    //             'weight' => ['required', 'numeric', 'min:0', 'max:499.99'],
-    //             'dimensions' => ['required', 'string', 'max:255'],
-    //         ]);
+        ]);
 
-    //         auth()->user()->products()->create($validate);
+        Material::create($validate);
 
-    //         return redirect()->route('products.index');
-    //     }
+        return redirect()->route('materials.index');
+    }
 
     //     public function edit(Product $product)
     //     {

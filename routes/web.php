@@ -26,8 +26,8 @@ Route::middleware(['auth'])->group(function () {
 
     // CRUD Materials
     Route::get('/materials', [MaterialController::class, 'index'])->name('materials.index');
-    // Route::get('/products/create', [ProductController::class, 'create'])->name('products.create');
-    // Route::post('/products', [ProductController::class, 'store'])->name('products.store');
+    Route::get('/materials/create', [MaterialController::class, 'create'])->name('materials.create');
+    Route::post('/materials', [MaterialController::class, 'store'])->name('materials.store');
     Route::get('/materials/{material}', [MaterialController::class, 'show'])->name('materials.show');
     // Route::get('/products/{product}/edit', [ProductController::class, 'edit'])->name('products.edit');
     // Route::put('/products/{product}', [ProductController::class, 'update'])->name('products.update');
