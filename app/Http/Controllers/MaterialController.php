@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Material;
-use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class MaterialController extends Controller
 {
@@ -14,7 +15,7 @@ class MaterialController extends Controller
 
         return view('materials.index', compact('materials'));
     }
-    
+
     public function create()
     {
         return view('materials.create');
@@ -33,26 +34,22 @@ class MaterialController extends Controller
         return redirect()->route('materials.index');
     }
 
-    //     public function edit(Product $product)
-    //     {
-    //         return view('products.edit', compact('product'));
-    //     }
+    public function edit(Material $material)
+    {
+        return view('materials.edit', compact('material'));
+    }
 
-    //     public function update(Request $request, Product $product)
-    //     {
-    //         $validate = $request->validate([
-    //             'name' => ['required', 'string', 'max:255'],
-    //             'sku' => ['required', 'string', 'max:255', Rule::unique('products')->ignore($product->id)],
-    //             'description' => ['required', 'string', 'max:1500'],
-    //             'category' => ['required', 'string', 'max:255'],
-    //             'weight' => ['required', 'numeric', 'min:0', 'max:499.99'],
-    //             'dimensions' => ['required', 'string', 'max:255'],
-    //         ]);
+    public function update(Request $request, Material $material): RedirectResponse
+    {
+        $validate = $request->validate([
+            'name' => ['required', 'string', 'max:255', Rule::unique('materials')->ignore($material->id)],
+            'description' => ['required', 'string', 'max:1500'],
+        ]);
 
-    //         $product->update($validate);
+        $material->update($validate);
 
-    //         return redirect()->route('products.show', $product);
-    //     }
+        return redirect()->route('materials.show', $material);
+    }
 
     //     public function destroy(Product $product): RedirectResponse
     //     {

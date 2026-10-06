@@ -8,6 +8,11 @@
             <dd>{{ $material->description }}</dd>
         </div>
     </dl>
+
+        <div>
+            <a href="{{ route('materials.edit', $material) }}" class = "underline"> Edit Material </a>
+        </div>
+
         <div>
             <a href="{{ route('materials.index') }}" class = "underline"> Back to overview </a>
         </div>

@@ -43,7 +43,7 @@ class ProductController extends Controller
         return view('products.edit', compact('product'));
     }
 
-    public function update(Request $request, Product $product)
+    public function update(Request $request, Product $product): RedirectResponse
     {
         $validate = $request->validate([
             'name' => ['required', 'string', 'max:255'],
