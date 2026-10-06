@@ -51,12 +51,12 @@ class MaterialController extends Controller
         return redirect()->route('materials.show', $material);
     }
 
-    //     public function destroy(Product $product): RedirectResponse
-    //     {
-    //         $product->delete();
+    public function destroy(Material $material): RedirectResponse
+    {
+        $material->delete();
 
-    //         return redirect()->route('products.index');
-    //     }
+        return redirect()->route('materials.index');
+    }
 
     public function show(Material $material)
     {

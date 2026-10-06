@@ -8,6 +8,11 @@
                 @foreach ($materials as $material)
                     <li class="material">
                         <h2><a href="{{ route('materials.show', $material) }}">{{ $material->name }}</a></h2>
+                        <form method="POST" action="{{ route('materials.destroy', $material) }}" class="inline">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="text-red-600 underline">Delete</button>
+                        </form>
                     </li>
                 @endforeach
             </ul>

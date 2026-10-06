@@ -31,7 +31,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/materials/{material}', [MaterialController::class, 'show'])->name('materials.show');
     Route::get('/materials/{material}/edit', [MaterialController::class, 'edit'])->name('materials.edit');
     Route::put('/materials/{material}', [MaterialController::class, 'update'])->name('materials.update');
-    // Route::delete('/products/{product}', [ProductController::class, 'destroy'])->name('products.destroy');
+    Route::delete('/materials/{material}', [MaterialController::class, 'destroy'])->name('materials.destroy');
 
     // CRUD Passport
 
