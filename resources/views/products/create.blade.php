@@ -21,7 +21,7 @@
         <!-- Description -->
         <div class="mt-4">
             <x-breeze.input-label for="description" :value="__('Description')" />
-            <textarea id="description" class="block mt-1 w-full border-gray-300 rounded-md" name="description">{{ old('description') }}</textarea>
+            <textarea id="description" class="block mt-1 w-full border border-gray-400 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-xs px-2 py-1" name="description">{{ old('description') }}</textarea>
             <x-breeze.input-error :messages="$errors->get('description')" class="mt-2" />
         </div>
 
@@ -52,4 +52,8 @@
             </x-breeze.primary-button>
         </div>
     </form>
+
+    <div class="mt-6">
+        <a href="{{ route('dashboard') }}" class="underline">Back to dashboard</a>
+    </div>
 </x-site-layout>
