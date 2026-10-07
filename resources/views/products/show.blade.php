@@ -17,7 +17,7 @@
             <dd>{{ $product->weight }} kg</dd>
 
             <dt class="text-sm text-gray-500"> Dimensions </dt>
-            <dd>{{ $product->dimensions }} m</dd>
+            <dd>{{ $product->dimensions }}</dd>
             
             <dt class="text-sm text-gray-500"> Company </dt>
             <dd>{{ $product->user->company }}</dd>
@@ -38,8 +38,36 @@
             </dd>
         </div>
     </dl>
+
         <div>
             <a href="{{ route('products.edit', $product) }}" class = "underline"> Edit Product </a>
+        </div>
+
+        <div>
+            <p>
+                DPP status:
+                @if ($product->passport->is_published)
+                    Published
+                @else
+                    Not published
+                @endif
+            </p>
+
+            <form method="POST" action="{{ route('passports.toggle', $product->passport) }}" class="inline">
+                @csrf
+                @method('PATCH')
+                <button type="submit" class="underline">
+                    @if ($product->passport->is_published)
+                        Unpublish
+                    @else
+                        Publish
+                    @endif
+                </button>
+            </form>
+
+            @if ($product->passport->is_published)
+                <a href="{{ route('passports.show', $product->passport) }}" class="underline">View public DPP →</a>
+            @endif
         </div>
 
         <div>

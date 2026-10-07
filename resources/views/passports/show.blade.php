@@ -21,7 +21,7 @@
             <dd>{{ $passport->product->weight }} kg</dd>
 
             <dt class="text-sm text-gray-500"> Dimensions </dt>
-            <dd>{{ $passport->product->dimensions }} m</dd>
+            <dd>{{ $passport->product->dimensions }}</dd>
 
             <dt class="text-sm text-gray-500"> Materials </dt>
             <dd>

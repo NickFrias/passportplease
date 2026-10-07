@@ -36,6 +36,7 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('/materials/{material}', [MaterialController::class, 'destroy'])->name('materials.destroy');
 
     // CRUD Passport
+    Route::patch('/passports/{passport}/toggle', [PassportController::class, 'toggle'])->name('passports.toggle');
 
 });
 
