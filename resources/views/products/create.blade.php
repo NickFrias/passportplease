@@ -1,5 +1,5 @@
 <x-site-layout title="Create Product">
-    <h1>Product Creation </h1>
+    <h1 class="text-3xl font-bold">Product Creation</h1>
 
     <form method="POST" action="{{ route('products.store') }}">
         @csrf
@@ -19,7 +19,7 @@
         </div>
 
         <!-- Description -->
-                 <div class="mt-4">
+        <div class="mt-4">
             <x-breeze.input-label for="description" :value="__('Description')" />
             <textarea id="description" class="block mt-1 w-full border-gray-300 rounded-md" name="description">{{ old('description') }}</textarea>
             <x-breeze.input-error :messages="$errors->get('description')" class="mt-2" />
@@ -46,8 +46,8 @@
             <x-breeze.input-error :messages="$errors->get('dimensions')" class="mt-2" />
         </div>
 
-        <div>
-            <x-breeze.primary-button class="ms-4">
+        <div class="mt-6">
+            <x-breeze.primary-button>
                 {{ __('Create') }}
             </x-breeze.primary-button>
         </div>

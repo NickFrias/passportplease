@@ -1,6 +1,6 @@
 <x-site-layout title="Digital Product Passport">
     <h1 class="text-3xl font-bold">Digital Product Passport</h1>
-    <dl>
+    <dl class="mt-4">
         <div>
             <dt class="text-sm text-gray-500"> Name </dt>
             <dd>{{ $passport->product->name }}</dd>
