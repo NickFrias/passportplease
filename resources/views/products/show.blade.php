@@ -29,8 +29,9 @@
                 @else
                     <ul>
                         @foreach ($product->materials as $material)
-                         <li>
-                            <a href="{{route('materials.show', $material)}}">{{$material->name}}:{{$material->pivot->percentage}} % </li>
+                        <li>
+                            <a href="{{route('materials.show', $material)}}">{{$material->name}}:{{$material->pivot->percentage}} % </a>
+                        </li>
                     @endforeach
                     </ul>   
                 @endif

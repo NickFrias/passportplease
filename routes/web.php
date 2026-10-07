@@ -2,12 +2,14 @@
 
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\MaterialController;
+use App\Http\Controllers\PassportController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
 
 // Public
 Route::get('/', [WelcomeController::class, 'index'])->name('welcome');
+Route::get('/passports/{passport:slug}', [PassportController::class, 'show'])->name('passports.show');
 
 // LOGGED-IN
 Route::middleware(['auth'])->group(function () {
