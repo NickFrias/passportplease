@@ -9,7 +9,32 @@
             
             <dt class="text-sm text-gray-500"> SKU </dt>
             <dd>{{ $product->sku }}</dd>
-            </p>
+
+            <dt class="text-sm text-gray-500"> Category </dt>
+            <dd>{{ $product->category }}</dd>
+
+            <dt class="text-sm text-gray-500"> Weight </dt>
+            <dd>{{ $product->weight }} kg</dd>
+
+            <dt class="text-sm text-gray-500"> Dimensions </dt>
+            <dd>{{ $product->dimensions }} kg</dd>
+            
+            <dt class="text-sm text-gray-500"> Company </dt>
+            <dd>{{ $product->user->company }}</dd>
+
+            <dt class="text-sm text-gray-500"> Materials </dt>
+            <dd>
+                @if ($product->materials->isEmpty())
+                    No materials yet.
+                @else
+                    <ul>
+                        @foreach ($product->materials as $material)
+                         <li>
+                            <a href="{{route('materials.show', $material)}}">{{$material->name}}:{{$material->pivot->percentage}} % </li>
+                    @endforeach
+                    </ul>   
+                @endif
+            </dd>
         </div>
     </dl>
         <div>
