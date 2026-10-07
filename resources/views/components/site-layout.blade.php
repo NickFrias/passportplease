@@ -10,7 +10,11 @@
 <body class="bg-gray-50 text-gray-900">
     <header class="bg-white border-b">
         <div class="mx-auto max-w-3xl p-4">
-            <a href="{{ route('welcome') }}" class="text-lg font-semibold hover:underline">PassportPlease</a>
+            @auth
+                <a href="{{ route('dashboard') }}" class="text-lg font-semibold hover:underline">PassportPlease</a>
+            @else
+                <a href="{{ route('welcome') }}" class="text-lg font-semibold hover:underline">PassportPlease</a>
+            @endauth
         </div>
     </header>
 
