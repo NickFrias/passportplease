@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 
 class ProductController extends Controller
@@ -32,8 +33,10 @@ class ProductController extends Controller
             'weight' => ['required', 'numeric', 'min:0', 'max:499.99'],
             'dimensions' => ['required', 'string', 'max:255'],
         ]);
-
-        auth()->user()->products()->create($validate);
+        $product = auth()->user()->products()->create($validate);
+        $product->passport()->create([
+            'slug' => Str::slug($product->sku),
+        ]);
 
         return redirect()->route('products.index');
     }
