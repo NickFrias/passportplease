@@ -5,6 +5,7 @@ namespace App\Models;
 use Database\Factories\MaterialFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Material extends Model
 {
@@ -16,4 +17,8 @@ class Material extends Model
         'description',
     ];
 
+    public function products(): BelongsToMany
+    {
+        return $this->belongsToMany(Product::class)->withPivot('percentage');
+    }
 }
