@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Product extends Model
 {
@@ -31,5 +32,10 @@ class Product extends Model
     public function materials(): BelongsToMany
     {
         return $this->belongsToMany(Material::class)->withPivot('percentage');
+    }
+
+    public function passport(): HasOne
+    {
+        return $this->hasOne(Passport::class);
     }
 }
