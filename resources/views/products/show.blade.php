@@ -17,7 +17,7 @@
             <dd>{{ $product->weight }} kg</dd>
 
             <dt class="text-sm text-gray-500"> Dimensions </dt>
-            <dd>{{ $product->dimensions }} kg</dd>
+            <dd>{{ $product->dimensions }} m</dd>
             
             <dt class="text-sm text-gray-500"> Company </dt>
             <dd>{{ $product->user->company }}</dd>
@@ -30,7 +30,7 @@
                     <ul>
                         @foreach ($product->materials as $material)
                         <li>
-                            <a href="{{route('materials.show', $material)}}">{{$material->name}}:{{$material->pivot->percentage}} % </a>
+                            <a href="{{route('materials.show', $material)}}">{{$material->name}}</a>:{{$material->pivot->percentage}} %
                         </li>
                     @endforeach
                     </ul>   
